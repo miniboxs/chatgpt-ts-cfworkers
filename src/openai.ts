@@ -1,6 +1,6 @@
 /**
  * Author:Jesmora
- * Date:2023-08-30
+ * Date:2023-08-31
  * Contact:hideip#hideip.network
 */
 import { v4 as uuidv4 } from "uuid"
@@ -13,7 +13,7 @@ export default async (c: any) => {
     const OPENAI_MODEL = c?.env?.OPENAI_MODEL || 'gpt-3.5-turbo';
     const MAX_MESSAGES_PER_CHAT = 40;
 
-    // get params
+    // get query
     const { question, cid } = c.req.query();
 
     // Create a chat ID if not provided
