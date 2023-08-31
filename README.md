@@ -41,9 +41,9 @@ npm run deploy
 ```
 
 ```
-https://xxx.xxx.workers.dev/ai?querstion=$querstion&cid=$cid
+https://xxx.xxx.workers.dev/ai?question=$question&cid=$cid
 
-question: your querstion ,it is required
+question: your question ,it is required
 cid: continuous chat cid, optional
 ```
 
