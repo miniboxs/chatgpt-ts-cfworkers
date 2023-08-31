@@ -1,0 +1,12 @@
+name = "chatgpt"
+main = "src/index.ts"
+compatibility_date = "2023-08-31"
+
+[vars]
+OPENAI_KEY = "YOUR OPENAI_KEY"
+OPENAI_MODEL = "gpt-3.5-turbo"
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = ""
+database_id = ""
