@@ -14,8 +14,8 @@ export default async (c: any) => {
     const MAX_MESSAGES_PER_CHAT = 40;
 
     // get query
-    const { question, cid } = await c.req.json();
-    
+    const { question, cid } =  c.req.query();
+
     // Create a chat ID if not provided
     const chatId = cid ? cid : uuidv4();
 
