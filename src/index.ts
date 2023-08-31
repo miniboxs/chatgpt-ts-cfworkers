@@ -10,6 +10,6 @@ import openai from './openai'
 const app = new Hono()
 
 app.get('/', async (c) => c.text('hello chatgpt'))
-app.get('/ai', async (c) => await openai(c))
+app.post('/ai', async (c) => await openai(c))
 
 export default app

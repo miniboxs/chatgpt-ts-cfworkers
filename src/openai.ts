@@ -14,8 +14,8 @@ export default async (c: any) => {
     const MAX_MESSAGES_PER_CHAT = 40;
 
     // get query
-    const { question, cid } = c.req.query();
-
+    const { question, cid } = await c.req.json();
+    
     // Create a chat ID if not provided
     const chatId = cid ? cid : uuidv4();
 
@@ -55,7 +55,7 @@ export default async (c: any) => {
          * If you don't want to use stream then use this
         */
         // const responseMessage = completion.choices[0].message;
-        
+
         // // Save generated response to ChatTable
         await ChatTable?.prepare(
             `INSERT INTO Chat (chatId, Roles, Content) VALUES (${chatId}), ('user'), (${responseText});`
