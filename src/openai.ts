@@ -3,18 +3,29 @@
  * Date:2023-08-31
  * Contact:hideip#hideip.network
 */
+import { Context } from "hono";
 import { v4 as uuidv4 } from "uuid"
 import OpenAI from "openai"
 
-export default async (c: any) => {
+export default async (c: Context) => {
     const OPENAI_KEY = c?.env?.OPENAI_KEY;
     // Use the latest OpenAI GPT-3.5 model, if the next 4 is released, modify this parameter
     // OpenAI models parameter list https://platform.openai.com/docs/models
     const OPENAI_MODEL = c?.env?.OPENAI_MODEL || 'gpt-3.5-turbo';
     const MAX_MESSAGES_PER_CHAT = 40;
 
-    // get query
-    const { question, cid } =  c.req.query();
+    // filtter method
+    if (c.req.method && !['GET', 'POST'].includes(c.req.method)) return c.text('Method not supported!', 422, {
+        'X-Custom': 'Thank you!',
+    })
+
+    // get data
+    const { question, cid } = c.req.method == "POST" ? await c.req.json() : c.req.query();
+
+    if (!question) return c.text("Missing required parameter $question", 400, {
+        'X-Message': 'question',
+        'Content-Type': 'text/plain',
+    })
 
     // Create a chat ID if not provided
     const chatId = cid ? cid : uuidv4();
