@@ -14,15 +14,17 @@ export default async (c: Context) => {
     const OPENAI_MODEL = c?.env?.OPENAI_MODEL || 'gpt-3.5-turbo';
     const MAX_MESSAGES_PER_CHAT = 40;
 
+    // filtter method
+    if (c.req.method && !['GET', 'POST'].includes(c.req.method)) return c.text('Method not supported!', 422, {
+        'X-Custom': 'Thank you!',
+    })
+
     // get data
     const { question, cid } = c.req.method == "POST" ? await c.req.json() : c.req.query();
 
-    if (!question) return new Response("Missing required parameter $question", {
-        status: 400,
-        headers: {
-            'X-Message': 'question',
-            'Content-Type': 'text/plain',
-        },
+    if (!question) return c.text("Missing required parameter $question", 400, {
+        'X-Message': 'question',
+        'Content-Type': 'text/plain',
     })
 
     // Create a chat ID if not provided
