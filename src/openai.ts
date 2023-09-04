@@ -55,25 +55,27 @@ export default async (c: Context) => {
             messages,
             temperature: 1,
             n: 1,
-            stream: true,
+            stream: false,
         });
-        let responseText: any;
-        for await (const part of completion) {
-            responseText += part.choices[0].delta.content
-        }
+        // let responseText: any;
+        // for await (const part of completion) {
+        //     responseText += part.choices[0].delta.content
+        // }
 
         /**
          * If you don't want to use stream then use this
         */
-        // const responseMessage = completion.choices[0].message;
+        const responseMessage = completion.choices[0].message;
 
         // // Save generated response to ChatTable
         await ChatTable?.prepare(
-            `INSERT INTO Chat (chatId, Roles, Content) VALUES (${chatId}), ('user'), (${responseText});`
+            `INSERT INTO Chat (chatId, Roles, Content) VALUES (${chatId}), ('user'), (${responseMessage});`
         );
 
         // Return response message and chat ID
-        return c.json({ reply: responseText.replace(new RegExp(/(undefined)/g), ''), cid: chatId })
+        // return c.json({ reply: responseText.replace(new RegExp(/(undefined)/g), ''), cid: chatId })
+        return c.json({ reply: responseMessage, cid: chatId })
+
     } catch (error) {
         return c.json(error)
     }
