@@ -34,9 +34,9 @@ database_name="<DATABASE_NAME>"
 database_id="<unique-ID-for-your-database>"
 ```
 
-## how to use?
+## How to use?
 
-* API: https://xx.workers.dev
+* API: https://xx.workers.dev `(your cf subdomain)`
 
 | Endpoint                       | Method | Parameter   | Type   | Required | Description                                |
 | ------------------------------ | ------ | ----------- | ------ | -------- | ------------------------------------------ |
@@ -44,5 +44,9 @@ database_id="<unique-ID-for-your-database>"
 |                                	|        | `cid`       | string| No       | of context identifiers               |
 | `/api/text2img`             | POST   | `prompt`    | string | Yes      | Text prompt for image generation           |
 | `/api/text`                    | POST   | `prompt`    | string | Yes      | Text prompt for text processing            |
+
+## Another
+
+[https://github.com/Hideipnetwork/hideipnetwork-web](https://github.com/Hideipnetwork/hideipnetwork-web)
 
 
