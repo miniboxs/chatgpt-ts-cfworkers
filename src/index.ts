@@ -5,11 +5,12 @@
 */
 
 import { Hono } from 'hono'
-import openai from './openai'
+import route from "./router/index"
 
 const app = new Hono()
 
+// router
 app.get('/', async (c) => c.text('hello chatgpt'))
-app.on(['GET', 'POST'], '/ai', async (c) => await openai(c))
+app.route('/api', route)
 
 export default app

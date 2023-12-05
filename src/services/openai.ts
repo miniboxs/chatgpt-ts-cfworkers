@@ -16,15 +16,15 @@ export default async (c: Context) => {
 
     // filtter method
     if (c.req.method && !['GET', 'POST'].includes(c.req.method)) return c.text('Method not supported!', 422, {
-        'X-Custom': 'Thank you!',
+        "X-Custom": "Thank you!",
     })
 
     // get data
     const { question, cid } = c.req.method == "POST" ? await c.req.json() : c.req.query();
 
     if (!question) return c.text("Missing required parameter $question", 400, {
-        'X-Message': 'question',
-        'Content-Type': 'text/plain',
+        "X-Message": "question",
+        "Content-Type": "text/plain",
     })
 
     // Create a chat ID if not provided

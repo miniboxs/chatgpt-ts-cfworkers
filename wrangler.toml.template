@@ -10,3 +10,6 @@ OPENAI_MODEL = "gpt-3.5-turbo"
 binding = "DB" # i.e. available in your Worker on env.DB
 database_name = ""
 database_id = ""
+
+[ai]
+binding = "AI"
