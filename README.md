@@ -1,4 +1,4 @@
-## Quickstart
+## Quickstart | [中文](https://github.com/miniboxs/chatgpt-ts-cfworkers/blob/main/README-zh-cn.md)
 
 ```
 git clone https://github.com/miniboxs/chatgpt-ts-cfworkers.git
