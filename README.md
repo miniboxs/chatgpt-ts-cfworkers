@@ -13,6 +13,10 @@ npm install
 ```
 
 ```
+cp wrangler.toml.template wrangler.toml
+```
+
+```
 npm run deploy
 ```
 
@@ -29,9 +33,6 @@ wrangler d1 execute   --file=sql/schema.sql
 D1 visit: [https://developers.cloudflare.com/d1/](https://developers.cloudflare.com/d1/)
 ```
 
-```
-cp wrangler.toml.template wrangler.toml
-```
 
 # Edit wrangler.toml
 
