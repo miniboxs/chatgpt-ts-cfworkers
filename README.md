@@ -17,6 +17,10 @@ cp wrangler.toml.template wrangler.toml
 ```
 
 ```
+npm run login
+```
+
+```
 npm run deploy
 ```
 

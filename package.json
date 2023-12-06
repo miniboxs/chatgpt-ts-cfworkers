@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "npx wrangler dev --remote",
+    "login": "wrangler login",
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
