@@ -1,14 +1,22 @@
-```
-## quickstart
-```
+## Quickstart
 
 ```
 git clone https://github.com/miniboxs/chatgpt-ts-cfworkers.git
 ```
 
 ```
-cd chatgpt-ts-cfworkers && npm install
+cd chatgpt-ts-cfworkers
 ```
+
+```
+npm install
+```
+
+```
+npm run deploy
+```
+
+> **If chatgpt is not needed, please deploy it directly and check [How to use?](#use)*
 
 # Create D1 and execute schema.sql
 
@@ -34,7 +42,7 @@ database_name="<DATABASE_NAME>"
 database_id="<unique-ID-for-your-database>"
 ```
 
-## How to use?
+<h2 id='use'> How to use?</h2>
 
 * API: https://xx.workers.dev `(your cf subdomain)`
 
@@ -48,5 +56,3 @@ database_id="<unique-ID-for-your-database>"
 ## Another
 
 [https://github.com/Hideipnetwork/hideipnetwork-web](https://github.com/Hideipnetwork/hideipnetwork-web)
-
-
